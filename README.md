@@ -11,9 +11,9 @@ Your first step in this journey is to **carefully read** the steps in this tutor
 
 # Prep Course Tutorial
 
-Follow these steps to make sure your machine is ready **before** the course starts (April X, 2022).
+Follow these steps to make sure your machine is ready **before** the course starts (April 4, 2022).
 
-### **Initial Setup (do this before April X !!)**
+### **Initial Setup (do this before April 4 !!)**
 
 1. [Initial Setup](#1-initial-setup)
 
@@ -58,7 +58,7 @@ Follow these steps to make sure your machine is ready **before** the course star
 Here you'll setup and learn about all the tools you'll be
 using during the academy. Don't worry if you can't figure out what some of the commands you will use do. Anything that is important will be explained in more detail during the course.
 
-⚠️ **Important**: You should complete this setup by April X, as the course will begin on that day. If you are struggling to install any of the software mentioned below, tell us ASAP!
+⚠️ **Important**: You should complete this setup by April 4, as the course will begin on that day. If you are struggling to install any of the software mentioned below, tell us ASAP!
 
 
 <br>
@@ -420,7 +420,7 @@ pip install -U pip
 <br>
 
 ### **1.6 Testing the workflow**
-Finally, test the workflow ([next section](#2-learning-unit-workflow)) on `"Week 00"` before April 5. This folder is used to give instructors guidelines to produce the learning units. We are also using it to ensure that you are able to run and submit a learning unit.
+Finally, test the workflow ([next section](#2-learning-unit-workflow)) on `"Week 00"` before April 4. This folder is used to give instructors guidelines to produce the learning units. We are also using it to ensure that you are able to run and submit a learning unit.
 
 <br>
 
@@ -428,7 +428,7 @@ Finally, test the workflow ([next section](#2-learning-unit-workflow)) on `"Week
 
 ## **2. Learning Unit Workflow**
 
-**Each week** a new folder is released on [`ds-prep-course-2022`](https://github.com/LDSSA/ds-prep-course-2022) repository. On week 1 (April 5 - April 11), the folder released will be `"Week 01"`. On week 02, it will be called `"Week 02"`, and so on. These folders contain the learning units you'll be working on. The releases will be announced on Slack, on the ___#announcements___ channel.
+**Each week** a new folder is released on [`ds-prep-course-2022`](https://github.com/LDSSA/ds-prep-course-2022) repository. On week 1 (April 4 - April 10), the folder released will be `"Week 01"`. On week 02, it will be called `"Week 02"`, and so on. These folders contain the learning units you'll be working on. The releases will be announced on Slack, on the ___#announcements___ channel.
 
 <br>
 
