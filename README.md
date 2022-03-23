@@ -11,7 +11,7 @@ Your first step in this journey is to **carefully read** the steps in this tutor
 
 # Prep Course Tutorial
 
-Follow these steps to make sure your machine is ready **before** the course starts (April 4, 2022).
+Follow these steps to make sure your machine is ready by April 4, 2022.
 
 ### **Initial Setup (do this before April 4 !!)**
 
