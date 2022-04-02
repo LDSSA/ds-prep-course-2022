@@ -52,14 +52,13 @@ Follow these steps to make sure your machine is ready by April 4, 2022.
 7. [Tutorial videos from Prep Course 2020](#7-tutorial-videos-from-prep-course-2020)
 
 ---
-## **1. Initial Setup**
 
+## **1. Initial Setup**
 
 Here you'll setup and learn about all the tools you'll be
 using during the academy. Don't worry if you can't figure out what some of the commands you will use do. Anything that is important will be explained in more detail during the course.
 
 ⚠️ **Important**: You should complete this setup by April 4, as the course will begin on that day. If you are struggling to install any of the software mentioned below, tell us ASAP!
-
 
 <br>
 
@@ -101,9 +100,11 @@ sudo apt update && sudo apt install python3.7 -y
 ```
 
 **Step 4** Run the following command to get `pip` and `venv`:
+
 ```bash
 sudo apt update && sudo apt upgrade && sudo apt install python3-pip python3.7-venv -y
 ```
+
 >**Why do we install these?**
 >
 > We'll be using `pip` which is the reference Python package manager. You should always use a virtual environment to install python packages. We'll use `venv` to set them up.
@@ -140,9 +141,11 @@ sudo apt update && sudo apt install python3.7 -y
 ```
 
 **Step 4** Run the following command to get `pip` and `venv`:
+
 ```bash
 sudo apt update && sudo apt upgrade && sudo apt install python3-pip python3.7-venv -y
 ```
+
 >**Why do we install these?**
 >
 > We'll be using `pip` which is the reference Python package manager. You should always use a virtual environment to install python packages. We'll use `venv` to set them up.
@@ -155,8 +158,9 @@ Some of the steps in the following sections will require _Homebrew_ for MacOS.
 _Homebrew_ will make it easier to install software that we'll use later on.
 
 **Step 1:** To open the terminal, choose one:
-* In Finder <img src='assets/finder.png' alt='Finder' width="4%" />, open the /Applications/Utilities folder, then double-click Terminal.
-* By pressing <kbd>cmd</kbd> + <kbd>space</kbd> then type `terminal` and press <kbd>enter</kbd>.
+
+- In Finder <img src='assets/finder.png' alt='Finder' width="4%" />, open the /Applications/Utilities folder, then double-click Terminal.
+- By pressing <kbd>cmd</kbd> + <kbd>space</kbd> then type `terminal` and press <kbd>enter</kbd>.
 
     The terminal should now be open:
 
@@ -210,8 +214,9 @@ So you got the new M1 and you're supper happy with how fast it is.. Unfortunatel
 get around. You no longer have a intel chip and most things are available for intel. But don't worry, we'll be able to get there in the end.
 
 **Step 1:** To open the terminal, choose one:
-* In Finder <img src='assets/finder.png' alt='Finder' width="4%" />, open the /Applications/Utilities folder, then double-click Terminal.
-* By pressing <kbd>cmd</kbd> + <kbd>space</kbd> then type `terminal` and press <kbd>enter</kbd>.
+
+- In Finder <img src='assets/finder.png' alt='Finder' width="4%" />, open the /Applications/Utilities folder, then double-click Terminal.
+- By pressing <kbd>cmd</kbd> + <kbd>space</kbd> then type `terminal` and press <kbd>enter</kbd>.
 
     The terminal should now be open:
 
@@ -226,7 +231,6 @@ softwareupdate --install-rosetta
 ```
 
 This will launch the rosetta installer and you’ll have to agree to a license agreement.
-
 
 **Step 2:** To install Homebrew x86 version, aka `ibrew` for MacOS, copy and paste the following line in the terminal:
 
@@ -257,6 +261,7 @@ alias ibrew="arch -x86_64 /usr/local/bin/brew"
 **Step 3.3:** Save the alterations to .zshrc with <kbd>Ctrl</kbd> + <kbd>Ctrl</kbd>, and enter <kbd>Y</kbd> when asked to save alterations.
 
 **Step 3.4:** Activate the alterations done to .zshrc
+
 ```bash
 source ~/.zshrc
 ```
@@ -274,10 +279,10 @@ export PATH="/usr/local/opt/python@3.7/bin:$PATH" >> ~/.zshrc
 ```
 
 **Step 6** Re-activate the alterations done to .zshrc
+
 ```bash
 source ~/.zshrc
 ```
-
 
 ### **1.2 Setup _Git_ and _GitHub_**
 
@@ -336,6 +341,7 @@ You can also check
 **Step 1:** Open a terminal (or use one you've already opened)
 
 **Step 2:** Create a folder named `projects` by using the `mkdir` command:
+
 ```bash
 mkdir ~/projects
 ```
@@ -359,7 +365,7 @@ You should now have a local copy of your `ds-prep-workspace` in your `~/projects
 
 <br>
 
-**Note:** If you already have a Github account and you happen to have 2FA enabled, you need an extra step and simply inputting your password will not work. In this case, you can go to https://github.com/settings/tokens, click on `Generate new token`. You can give it a name in the note field, such as `ldsa-token`. Then select `repo` in the scopes and click on `Generate token`. You will be prompted with a code that you should save (you will not be able to see it again after leaving that window). Now use this code instead of your password when cloning your repo.
+**Note:** If you already have a Github account and you happen to have 2FA enabled, you need an extra step and simply inputting your password will not work. In this case, you can go to <https://github.com/settings/tokens>, click on `Generate new token`. You can give it a name in the note field, such as `ldsa-token`. Then select `repo` in the scopes and click on `Generate token`. You will be prompted with a code that you should save (you will not be able to see it again after leaving that window). Now use this code instead of your password when cloning your repo.
 
 <img src='assets/personal_access_token.PNG' width="75%" />
 
@@ -371,7 +377,6 @@ _Remember that by August 13, 2021, the username+password authentication [will no
 
 <br>
 
-
 Let's clone the [`ds-prep-course-2022`](https://github.com/LDSSA/ds-prep-course-2022) repository, [just like we did](#132-cloning-the-workspace) for `ds-prep-workspace`. This is where all of the learning materials will be made available, as the academy progresses.
 
 **Step 1:** Open a terminal (or use one you've already opened) and enter the `projects` folder:
@@ -381,6 +386,7 @@ cd ~/projects
 ```
 
 **Step 2:** Clone the Prep Course repository (it's the same that contains the README you're reading right now!):
+
 ```bash
 git clone https://github.com/LDSSA/ds-prep-course-2022.git
 ```
@@ -402,6 +408,7 @@ python3.7 -m pip install --user --upgrade pip setuptools wheel
 ```bash
 python3.7 -m venv ~/.virtualenvs/prep-venv
 ```
+
 **Step 3:** Activate the environment
 
 ```bash
@@ -420,6 +427,7 @@ pip install -U pip
 <br>
 
 ### **1.6 Testing the workflow**
+
 Finally, test the workflow ([next section](#2-learning-unit-workflow)) on `"Week 00"` before April 4. This folder is used to give instructors guidelines to produce the learning units. We are also using it to ensure that you are able to run and submit a learning unit.
 
 <br>
@@ -428,7 +436,7 @@ Finally, test the workflow ([next section](#2-learning-unit-workflow)) on `"Week
 
 ## **2. Learning Unit Workflow**
 
-**Each week** a new folder is released on [`ds-prep-course-2022`](https://github.com/LDSSA/ds-prep-course-2022) repository. On week 1 (April 4 - April 10), the folder released will be `"Week 01"`. On week 02, it will be called `"Week 02"`, and so on. These folders contain the learning units you'll be working on. The releases will be announced on Slack, on the ___#announcements___ channel.
+**Each week** a new folder is released on [`ds-prep-course-2022`](https://github.com/LDSSA/ds-prep-course-2022) repository. On week 1 (April 4 - April 10), the folder released will be `"Week 01"`. On week 02, it will be called `"Week 02"`, and so on. These folders contain the learning units you'll be working on. The releases will be announced on Slack, on the _**#announcements**_ channel.
 
 <br>
 
@@ -439,14 +447,17 @@ This section only needs to be done **ONCE for each week**. It is about getting t
 <br>
 
 1. Run the following on a terminal:
+
     ```bash
     cd ~/projects/ds-prep-course-2022/
     ```
+
     ```bash
     git pull
     ```
 
     **⚠️ Before running the command below:** - If `"Week <week number>"` already exists on the destination folder, it will be replaced, so make sure you do this **once** and before starting to work on the exercises.
+
     ```bash
     cp -r ~/projects/ds-prep-course-2022/"Week <week number>" ~/projects/ds-prep-workspace/
     ```
@@ -456,6 +467,7 @@ This section only needs to be done **ONCE for each week**. It is about getting t
 <br>
 
 2. Activate the `prep-venv` environment you created on the Initial Setup:
+
     ```bash
     source ~/.virtualenvs/prep-venv/bin/activate
     ```
@@ -463,11 +475,13 @@ This section only needs to be done **ONCE for each week**. It is about getting t
 <br>
 
 3. Install the python packages from `requirements.txt` for each learning unit (there are multiple learning units (SLU's) in a Week!):
+
     ```bash
     pip install -r ~/projects/ds-prep-workspace/"Week <week number>"/"<SLU name>"/requirements.txt
     ```
 
     **Example:** For Week 00 you'd do:
+
     ```bash
     pip install -r ~/projects/ds-prep-workspace/"Week 00"/"SLU00 - Jupyter Notebook"/requirements.txt
     ```
@@ -481,12 +495,15 @@ Each time you want to work on the materials that you already copied to your work
 <br>
 
 **Step 1** - Enter the `ds-prep-workspace` directory:
+
 ```bash
 cd ~/projects/ds-prep-workspace
 ```
+
 <br>
 
 **Step 2** - Activate your virtual environment:
+
 ```bash
 source ~/.virtualenvs/prep-venv/bin/activate
 ```
@@ -494,10 +511,13 @@ source ~/.virtualenvs/prep-venv/bin/activate
 <br>
 
 **Step 3** - Open the Jupyter Notebook application by running:
+
 ```bash
 jupyter notebook
 ```
+
 If you are running **Windows 10/11**, run the following **instead**:
+
 ```bash
 jupyter notebook --NotebookApp.use_redirect_file=False
 ```
@@ -524,9 +544,9 @@ Make sure you open and go through the Learning Notebook(s) first.
     This is a notebook with exercises you will work on. For example, on the sample Learning Unit we have:
 ![Open exercise notebook](assets/jupyter_exercise_notebook.png "Open exercise notebook")
 
-    - Follow the instructions provided in the notebook. You'll see cells with the exercises and cells for you to write solutions.
+  - Follow the instructions provided in the notebook. You'll see cells with the exercises and cells for you to write solutions.
 
-    - Once you've solved all of the exercises we recommend following this simple checklist to avoid unexpected surprises:
+  - Once you've solved all of the exercises we recommend following this simple checklist to avoid unexpected surprises:
         1. Save the notebook (again)
         2. Run "Restart & Run All"
 
@@ -540,18 +560,42 @@ Make sure you open and go through the Learning Notebook(s) first.
 
 <br>
 
-**Step 5** -  Commit and push
+**Step 5** -  Grading the Exercise Notebook
+
+[Get your slackid](https://moshfeu.medium.com/how-to-find-my-member-id-in-slack-workspace-d4bba942e38c), then open a terminal and run the following:
+
+```bash
+cd ~/projects/ds-prep-workspace/"Week <week number>"/"<SLU name>"
+python submit.py --learning_unit <learning unit number> --slackid <your slackid>
+```
+
+**Example:** For Week 00 you'd do:
+
+```bash
+cd ~/projects/ds-prep-workspace/"Week 00"/"SLU00 - Jupyter Notebook"
+python submit.py --learning_unit 0 --slackid <your slackid>
+```
+
+Then you can look for your submission [here](https://prep-course-portal.ldsacademy.org/)
+
+<br>
+
+**Step 6** -  Commit and push
 
 Open a terminal and run the following:
+
 ```bash
 cd ~/projects/ds-prep-workspace
 ```
+
 ```bash
 git add .
 ```
+
 ```bash
 git commit -m "Exercises for Week <week number>"
 ```
+
 ```bash
 git push
 ```
@@ -559,9 +603,6 @@ git push
 You'll be asked for your password - enter it and press <kbd>enter</kbd>. Type your git password and press <kbd>enter</kbd>.
 
 - **Note**: You'll be learning all about `git add`, `git commit` and `git push` during the Prep Course. For now, just know that these are the necessary steps for you to save your work to your remote repository `ds-prep-workspace`.
-
-
-
 
 <br>
 
@@ -576,6 +617,7 @@ If the correction is in the exercise notebook, however, you can't just replace t
 When a new version of the exercise notebook is released (and announced) you will have to merge the work you've already did into the new version of the notebook.
 
 At the moment our suggestion to merge the changes is:
+
 1. Rename the old version;
 1. Copy the new exercise notebook over;
 1. Open both and copy paste your solutions to the new notebook.
@@ -599,11 +641,9 @@ You can contact us on Slack. Here's how to post questions on Slack:
 1. Always answer in a thread;
 1. Use Direct Messages (DMs) to instructors only if you need to share your solutions or a personal concern.
 
-
 Alternatively, [open an issue](https://github.com/LDSSA/ds-prep-course-2022/issues/).
 
 <br>
-
 
 ## **5. Troubleshooting**
 
@@ -616,20 +656,22 @@ Alternatively, [open an issue](https://github.com/LDSSA/ds-prep-course-2022/issu
 1. [Nothing happens when I type my password](#7-Nothing-happens-when-I-type-my-password)
 1. [I still have a NotImplemented error](#8-I-still-have-a-NotImplemented-error)
 
-#### ___1. When I open Windows Explorer through Ubuntu, it goes to a different folder than in the guide___
+#### _**1. When I open Windows Explorer through Ubuntu, it goes to a different folder than in the guide**_
 
 Please make sure:
-* you are running the command `explorer.exe .` including the dot at the end.
-* you are running Windows 10 version `1909` or newer.
 
-#### ___2. Ubuntu on Windows 10 high CPU usage, crashes___
+- you are running the command `explorer.exe .` including the dot at the end.
+- you are running Windows 10 version `1909` or newer.
 
-* Make sure you are running Windows 10 version `1909` or newer.
-* Then, try following [these steps](https://teckangaroo.com/enable-windows-10-virtual-machine-platform/)
+#### _**2. Ubuntu on Windows 10 high CPU usage, crashes**_
+
+- Make sure you are running Windows 10 version `1909` or newer.
+- Then, try following [these steps](https://teckangaroo.com/enable-windows-10-virtual-machine-platform/)
 
 #### ___3. When I pull from the `ds-prep-course-2022` repository, I get an error___
 
 If you get an error like the following when pulling:
+
 ```
 error: Your local changes to the following files would be overwritten by merge:
 <some files>
@@ -679,7 +721,7 @@ cp -r ~/projects/ds-prep-course-2022/“Week 00" ds-prep-workspace
 
 Make sure to use this type of quotes `"` and not these ones `“`.
 
-#### ___6. When setting up python 3.7 i get an error___
+#### _**6. When setting up python 3.7 i get an error**_
 
 When I run this command:
 
@@ -699,14 +741,14 @@ Solution: Take the id in front of `NO_PUBKEY` (in my case its `7FCC7D46ACCC4CF8`
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7FCC7D46ACCC4CF8
 ```
 
-#### ___7. Nothing happens when I type my password___
+#### _**7. Nothing happens when I type my password**_
 
 In **step two** it asks me for the computer password. However, I am not being able to write anything
 
 Solution:
 When you write your password you might not get any visual feedback and that's okay! Write it as normal and hit <kbd>enter</kbd> when you're done!
 
-#### ___8. I still have a NotImplemented error___
+#### _**8. I still have a NotImplemented error**_
 
 I've completed the exercise in the Exercise Notebook but when I run the cell I get a **NotImplementedError**.
 
@@ -725,8 +767,8 @@ Coming soon.
 
 🎁🎬 Check the **tutorial videos** if you have any doubts after following this tutorial. These videos were made for the **Prep Course of year 2020**, so there may be some differences.
 
- * [Setup guide for Windows - Part 1](https://www.youtube.com/watch?v=fWi3bYoHW18)
-* [Setup guide for Windows - Part 2](https://www.youtube.com/watch?v=bnJOQHh9pJ4)
-* [Setup guide for Mac](https://www.youtube.com/watch?v=qs0z4ibMFdU)
-* [Updates to Learning Units guide for Windows 10](https://www.youtube.com/watch?v=Q2Cezm6ufrE)
-* [Updates to Learning Units guide for Mac](https://www.youtube.com/watch?v=-fzIDfNBZ0I)
+- [Setup guide for Windows - Part 1](https://www.youtube.com/watch?v=fWi3bYoHW18)
+- [Setup guide for Windows - Part 2](https://www.youtube.com/watch?v=bnJOQHh9pJ4)
+- [Setup guide for Mac](https://www.youtube.com/watch?v=qs0z4ibMFdU)
+- [Updates to Learning Units guide for Windows 10](https://www.youtube.com/watch?v=Q2Cezm6ufrE)
+- [Updates to Learning Units guide for Mac](https://www.youtube.com/watch?v=-fzIDfNBZ0I)
