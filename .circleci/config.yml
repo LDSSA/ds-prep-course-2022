@@ -1,0 +1,148 @@
+version: 2
+# find . -name *Dockerfile* | grep SLU01 | sed s/Dockerfile//
+# echo "SLU01-new-test" | cut -d'-' -f 1
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.7.6
+    steps:
+
+      - checkout
+
+      - run:
+          name: Verify existance of requirements.txt
+          command: |
+            source env.sh
+            stat "$DIRECTORY_TO_BUILD/requirements.txt"
+
+      - run:
+          name: Verify existance of exercise notebook
+          command: |
+            source env.sh
+            stat "$DIRECTORY_TO_BUILD/Exercise notebook.ipynb"
+
+      - run:
+          name: Verify existance of README.md
+          command: |
+            source env.sh
+            stat "$DIRECTORY_TO_BUILD/README.md"
+
+      - run:
+         name: Verify correctness of exercise notebook
+         command: |
+           set -x
+           source env.sh
+           # Change to LU dir
+           pushd "$DIRECTORY_TO_BUILD"
+           # Run validation
+           pip install ldsagrader
+           pip install -r requirements.txt
+           # Change back to the root of the repo
+           popd
+           export LC_ALL=C.UTF-8
+           export LANG=C.UTF-8
+           # Verify notebook to see if all solutions pass the assert functions
+           ldsagrader academy verify --codename=$SLUID
+
+  release:
+    docker:
+      - image: circleci/python:3.7.6
+
+    steps:
+
+      - checkout
+
+      - run:
+          name: Push to the student repo
+          command: |
+            set -x
+            git config --global user.email "machine@lisbondatascience.org"
+            git config --global user.name "LDSA Machine User"
+            source ./env.sh
+            # Clone student repository
+            cd
+            git clone $LDSA_STUDENT_REPO student-repo
+            cd student-repo
+            git checkout $CIRCLE_BRANCH || git checkout -b $CIRCLE_BRANCH
+
+            # Replace with intructors data
+            rm -rf "$DIRECTORY_TO_BUILD"
+            mkdir -p "$DIRECTORY_TO_BUILD"
+            cp -rT "../project/$DIRECTORY_TO_BUILD" "$DIRECTORY_TO_BUILD"
+
+            # Install ldsagrader
+            pushd $HOME
+            python3 -m venv venv
+            source venv/bin/activate
+            pip install --upgrade pip
+            pip install git+https://github.com/LDSSA/ldsagrader#egg=ldsagrader
+            popd
+
+            # Remove solutions from exercise notebook
+            ldsagrader academy clear --codename $SLUID
+
+            # Push to student repo
+            cd $HOME/student-repo/"$DIRECTORY_TO_BUILD"
+            git add .
+            git commit -am "$COMMIT_MESSAGE" || echo "no commit"
+            git push origin $CIRCLE_BRANCH
+
+
+  solutions_release:
+    docker:
+      - image: circleci/python:3.7.6
+
+    steps:
+
+      - checkout
+
+      - run:
+          name: Push to the student repo
+          command: |
+            set -x
+            git config --global user.email "machine@lisbondatascience.org"
+            git config --global user.name "LDSA Machine User"
+            source ./env.sh
+            # Clone student repository
+            cd
+            git clone $LDSA_STUDENT_REPO student-repo
+            cd student-repo
+            git checkout $CIRCLE_BRANCH || git checkout -b $CIRCLE_BRANCH
+
+            cp "../project/$DIRECTORY_TO_BUILD"/"Exercise notebook.ipynb" "$DIRECTORY_TO_BUILD/Solutions notebook.ipynb"
+
+            # Push to student repo
+            cd $HOME/student-repo/"$DIRECTORY_TO_BUILD"
+            git add .
+            git commit -am "$COMMIT_MESSAGE" || echo "no commit"
+            git push origin $CIRCLE_BRANCH
+
+workflows:
+  version: 2
+
+  workflow:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - /SLU.*/
+                - /slu.*/
+
+      - hold_release:
+          type: approval
+          requires:
+            - build
+
+      - release:
+          requires:
+            - hold_release
+
+      - solutions_hold_release:
+          type: approval
+          requires:
+            - release
+
+      - solutions_release:
+          requires:
+            - solutions_hold_release
