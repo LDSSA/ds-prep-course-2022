@@ -1,5 +1,6 @@
 import requests
 
+import click
 from nbgrader import utils
 from traitlets.config import Config
 import nbconvert
@@ -63,9 +64,14 @@ def submit(learning_unit: int, exercise_notebook: int, slackid: str, score: floa
         "slackid": slackid,
         "score": score,
     }
-    response = requests.post('http://127.0.0.1:8000/submissions/', json=data)
+    response = requests.post('https://prep-course-portal.ldsacademy.org/submissions/', json=data)
     print('Success' if response.ok else 'Whoopsie Daisy', response.text)
 
+@click.command()
+@click.option('--notebook_name', default='Exercise notebook.ipynb')
+@click.option('--learning_unit', help='learning_unit: like 0', required=True)
+@click.option('--exercise_notebook', default=1, help='exercise_notebook: like 1')
+@click.option('--slackid', help='slackid: like "UTS63FC02"', required=True)
 def grade_submit(notebook_name: str = 'Exercise notebook.ipynb', **kwargs) -> None:
     '''
     Grades the notebook and submits the grade to the prep course portal.
@@ -80,4 +86,5 @@ def grade_submit(notebook_name: str = 'Exercise notebook.ipynb', **kwargs) -> No
     kwargs['score'] = get_grade(notebook_name)
     submit(**kwargs)
 
-
+if __name__ == '__main__':
+    grade_submit()
