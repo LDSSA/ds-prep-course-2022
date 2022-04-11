@@ -30,13 +30,13 @@ You'll learn why a good comprehension of version control software is an absolute
 
 ## How to go through this SLU
 
-1. Follow the [Learning Unit Workflow](https://github.com/LDSSA/ds-prep-course-2021#2-learning-unit-workflow) to setup your environment.
+1. Follow the [Learning Unit Workflow](https://github.com/LDSSA/ds-prep-course-2022#2-learning-unit-workflow) to setup your environment.
 2. Go through the Learning Notebook.
 3. Do the Exercise notebook, and submit it, as usual.
 
 ## "I need help understanding something"
 
-You can and should ask for help, be it about Learning Notebooks, Exercises, or anything else. Please checkout the [How to Ask for Help](https://github.com/LDSSA/ds-prep-course-2021#4-how-to-ask-for-help), and remember not to share code when asking for help about the exercises!
+You can and should ask for help, be it about Learning Notebooks, Exercises, or anything else. Please checkout the [How to Ask for Help](https://github.com/LDSSA/ds-prep-course-2022#4-how-to-ask-for-help), and remember not to share code when asking for help about the exercises!
 
 ## Additional notes
 
