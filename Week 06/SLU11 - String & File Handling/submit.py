@@ -1,6 +1,5 @@
 import requests
-import os
-import re
+
 import click
 from nbgrader import utils
 from traitlets.config import Config
@@ -52,6 +51,7 @@ def get_grade(notebook_path='Exercise notebook.ipynb'):
 def submit(learning_unit: int, exercise_notebook: int, slackid: str, score: float) -> None:
     '''
     Submits the notebook.
+
     Parameters:
         url: like "https://sub-nb-grades-collector.herokuapp.com/submit"
         learning_unit: like 0
@@ -59,19 +59,12 @@ def submit(learning_unit: int, exercise_notebook: int, slackid: str, score: floa
         slackid: like "UTS63FC02"
         score: like 16.0
     '''
-    #get the learning unit number from the path
-    path=os.getcwd()
-    path_split=path.split('/')
-    lunit=int(re.findall('[0-9][0-9]',path_split[-1])[0])
-
     data = {
-#        "learning_unit": learning_unit,
-        "learning_unit": lunit,
+        "learning_unit": learning_unit,
         "exercise_notebook": exercise_notebook,
         "slackid": slackid,
         "score": score,
     }
-    print(data)
     response = requests.post('https://prep-course-portal.ldsacademy.org/submissions/', json=data)
     print('Success' if response.ok else 'Whoopsie Daisy', response.text)
 
@@ -83,6 +76,7 @@ def submit(learning_unit: int, exercise_notebook: int, slackid: str, score: floa
 def grade_submit(notebook_name: str = 'Exercise notebook.ipynb', **kwargs) -> None:
     '''
     Grades the notebook and submits the grade to the prep course portal.
+
     Parameters:
         notebook_name: the name of the exercise notebook
         slackid: like "UTS63FC02"
