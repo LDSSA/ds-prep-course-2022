@@ -16,7 +16,7 @@ def plot_school_functions():
     plt.figure(figsize=(16, 4));
 
     # function descriptions
-    function_names = ['Linear Function: f(x) = mx + b\n', 
+    function_names = ['Linear Function: f(x) = mx\n', 
                       'Quadratic Function: f(x) = x ** 2\n',
                       'Exponential Function: f(x) = b ** x\n']
     
