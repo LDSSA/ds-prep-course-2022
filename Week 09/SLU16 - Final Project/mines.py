@@ -158,7 +158,7 @@ class MinesweeperGame:
         >>> game.check_if_mine(2, 2)
         True
         """
-        return False # TODO: check if mine is in (x,y) position
+        return self.mines[x][y] == 1
 
     def count_mines_around(self, x: int, y: int) -> int:
         """
@@ -176,7 +176,7 @@ class MinesweeperGame:
         >>> game.count_mines_around(1, 1)
         1
         """
-        return False # TODO: counts the mines around (x,y) position
+        return sum(self.mines[w][h] for w, h in self.get_surrounding_cells(x, y))
 
     def click_around(self, x: int, y: int):
         """
@@ -213,7 +213,7 @@ class MinesweeperGame:
         be helpful. 
         """
         for new_x, new_y in self.get_surrounding_cells(x, y):
-            pass # TODO: reveal positions that have no mines around them
+            self.click(new_x, new_y)
 
     def is_running(self) -> bool:
         """
